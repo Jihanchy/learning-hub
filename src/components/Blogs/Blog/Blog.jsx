@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 
 const Blog = ({blog}) => {
-    const {id,author,author_img,reading_time,posted_date,cover} = blog
+    const {author,author_img,reading_time,posted_date,cover} = blog
     return (
         <div className="col-span-1 mt-4">
             <img 
@@ -14,13 +15,17 @@ const Blog = ({blog}) => {
                     <div className="">
                         <p className="text-xl font-bold">{author}</p>
                         <p>{posted_date}</p>
-                        
                     </div>
                 </div>
-                <div></div>
+                <div>
+                    <p>{reading_time} min read</p>
+                </div>
             </div>
         </div>
     );
 };
 
+Blog.propTypes = {
+    blog: PropTypes.object.isRequired
+};
 export default Blog;
