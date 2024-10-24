@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 
 const Blog = ({blog}) => {
-    const {author,author_img,reading_time,posted_date,cover} = blog
+    const {author,hashtags,title,author_img,reading_time,posted_date,cover} = blog
     return (
-        <div className="col-span-1 mt-4">
+        <div className="col-span-1 mb-4 space-y-4">
             <img 
             className="w-full
              rounded-md h-72 object-cover"
             src={cover} alt="" />
 
-            <div className="flex py-2 justify-between items-center">
+            <div className="flex  justify-between items-center">
                 <div className="flex gap-3 items-center">
                     <img className="rounded-full w-11 h-11 object-cover" src={author_img} alt="" />
                     <div className="">
@@ -21,6 +21,12 @@ const Blog = ({blog}) => {
                     <p>{reading_time} min read</p>
                 </div>
             </div>
+            <h3 className='text-3xl font-bold'>{title}</h3>
+            <p className='space-x-2'>
+                {
+                    hashtags.map((hash,idx) => <span key={idx}><a href="">{hash}</a></span>)
+                }
+            </p>
         </div>
     );
 };
